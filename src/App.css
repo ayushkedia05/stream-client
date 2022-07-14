@@ -1,0 +1,290 @@
+:root {
+  --app-height: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #212326;
+}
+
+body::-webkit-scrollbar {
+  background: transparent;
+}
+
+body {
+  scrollbar-color: transparent transparent;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+#root {
+  height: 100%;
+}
+
+.str-chat.str-chat-channel.messaging {
+  background: #fafafa;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.06), 0px 2px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark.str-chat.str-chat-channel.messaging {
+  background: #212326;
+  box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.1);
+}
+
+.str-chat.str-chat-channel-list.messaging {
+  background: #fafafa;
+}
+
+.dark.str-chat.str-chat-channel-list.messaging {
+  background: #212326 !important;
+}
+
+.str-chat-channel .str-chat__container {
+  padding-top: 20px;
+}
+
+.str-chat-channel.messaging .str-chat__main-panel {
+  padding: 0 !important;
+  min-width: 250px;
+}
+
+.messaging.str-chat .str-chat__list .str-chat__reverse-infinite-scroll {
+  padding-top: 0;
+}
+
+.messaging.str-chat.dark .str-chat__list {
+  padding: 0 30px 0;
+  background: #282a2d;
+}
+
+.str-chat-channel.messaging .str-chat__main-panel {
+  padding: 30px 30px 0 0px;
+}
+
+.str-chat-channel.messaging .str-chat__main-panel:not(:last-child) {
+  padding: 20px 0 0 0px;
+}
+
+.str-chat-channel.messaging .str-chat__main-panel:not(:last-child) .messaging__channel-header {
+  border-radius: 10px 0px 0px 0px;
+}
+
+.str-chat__message-simple-status {
+  display: none;
+}
+
+.messaging.str-chat.dark .str-chat__message--system__date {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.messaging.str-chat.dark .str-chat__message--system__text p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.messaging.str-chat.dark .str-chat__message--system__line {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.str-chat__message--system {
+  padding: 20px;
+}
+
+/* Mobile View */
+@media screen and (max-width: 640px) {
+  /*
+   * This is to prevent the browser navigation bars from hiding the app
+   * on some mobile browsers. The app-height variable is set dynamically
+   * using javascript.
+   */
+  .str-chat-channel {
+    height: var(--app-height);
+  }
+
+  .str-chat-channel-list.messaging {
+    float: unset;
+  }
+
+  #mobile-channel-list {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate3d(-100vw, 0, 0);
+    transition: transform 0.3s cubic-bezier(0, 0.52, 0, 1);
+  }
+
+  #mobile-channel-list.show {
+    transform: translate3d(0vw, 0, 0);
+    z-index: 1000;
+  }
+}
+
+/* To fix inherited styles (as per Team and Customer Support apps */
+@media screen and (max-width: 960px) {
+  .str-chat-channel-list.messaging {
+    position: unset;
+    left: unset;
+    top: unset;
+    z-index: unset;
+    min-height: unset;
+    overflow-y: unset;
+    box-shadow: unset;
+    transition: unset;
+  }
+}
+
+.channel-search__input__wrapper {
+  width: 90%;
+  padding-left: 10px;
+  justify-content: flex-start;
+}
+
+.channel-search__input__text {
+  width: inherit;
+}
+
+
+.channel-search__results {
+  top: 100%;
+  left: 5%;
+}
+
+
+.channel-search__container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #00000033;
+}
+
+.channel-search__input__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+  width: 95%;
+}
+
+.channel-search__input__wrapper:focus-within {
+  border: 1px solid #fff;
+}
+
+.channel-search__input__icon {
+  width: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.channel-search__input__text {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: Helvetica Neue, sans-serif;
+  font-size: 16px;
+  outline: none;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.66);
+  white-space: nowrap;
+  width: 150px;
+}
+
+.channel-search__results {
+  position: absolute;
+  height: fit-content;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #e9e9ea;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  z-index: 10;
+  left: 230px;
+  top: 16px;
+}
+
+.channel-search__results-header {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  font-family: Helvetica Neue, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  color: #858688;
+  margin-left: 12px;
+}
+
+.channel-search__results-header i {
+  font-weight: normal;
+  margin-left: 12px;
+}
+
+.channel-search__result-container {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.channel-search__result-container__focused {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  background: var(--primary-color-alpha);
+}
+
+.channel-search__result-container:hover {
+  background: var(--primary-color-alpha);
+  cursor: pointer;
+}
+
+.channel-search__result-user {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.result-hashtag {
+  height: 24px;
+  width: 28px;
+  background: var(--primary-color);
+  border-radius: 24px;
+  margin: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Helvetica Neue, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 120%;
+  color: #ffffff;
+}
+
+.channel-search__result-text {
+  width: 100%;
+  font-family: Helvetica Neue, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  color: #2c2c30;
+}
